@@ -1,0 +1,14 @@
+C:\Users\witko_000\Documents\GitHub\LZSS\LZSS\LZSS\bin\Debug\LZSS.exe.config
+C:\Users\witko_000\Documents\GitHub\LZSS\LZSS\LZSS\bin\Debug\LZSS.exe
+C:\Users\witko_000\Documents\GitHub\LZSS\LZSS\LZSS\bin\Debug\LZSS.pdb
+C:\Users\witko_000\Documents\GitHub\LZSS\LZSS\LZSS\obj\Debug\LZSS.csprojResolveAssemblyReference.cache
+C:\Users\witko_000\Documents\GitHub\LZSS\LZSS\LZSS\obj\Debug\MainWindow.g.cs
+C:\Users\witko_000\Documents\GitHub\LZSS\LZSS\LZSS\obj\Debug\App.g.cs
+C:\Users\witko_000\Documents\GitHub\LZSS\LZSS\LZSS\obj\Debug\LZSS_MarkupCompile.cache
+C:\Users\witko_000\Documents\GitHub\LZSS\LZSS\LZSS\obj\Debug\LZSS_MarkupCompile.lref
+C:\Users\witko_000\Documents\GitHub\LZSS\LZSS\LZSS\obj\Debug\MainWindow.baml
+C:\Users\witko_000\Documents\GitHub\LZSS\LZSS\LZSS\obj\Debug\LZSS.g.resources
+C:\Users\witko_000\Documents\GitHub\LZSS\LZSS\LZSS\obj\Debug\LZSS.Properties.Resources.resources
+C:\Users\witko_000\Documents\GitHub\LZSS\LZSS\LZSS\obj\Debug\LZSS.csproj.GenerateResource.Cache
+C:\Users\witko_000\Documents\GitHub\LZSS\LZSS\LZSS\obj\Debug\LZSS.exe
+C:\Users\witko_000\Documents\GitHub\LZSS\LZSS\LZSS\obj\Debug\LZSS.pdb
