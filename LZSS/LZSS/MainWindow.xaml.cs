@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,16 @@ namespace LZSS
         public MainWindow()
         {
             InitializeComponent();
+            var file = File.Open("Piotr_Szczap.bmp", FileMode.Open);
+            BinaryReader binary = new BinaryReader(file);
+            int length = (int) file.Length;
+            var bytecontent = binary.ReadBytes(length);
+            LzssCompressor lzssCompressor = new LzssCompressor(6, bytecontent);
+            bytes = bytecontent;
+            
+            this.DataContext = new LzssDecompressor(6,lzssCompressor.Compress().ToArray());
         }
+
+        public static byte[] bytes;
     }
 }
