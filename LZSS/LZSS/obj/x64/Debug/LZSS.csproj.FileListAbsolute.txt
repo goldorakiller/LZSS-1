@@ -1,0 +1,14 @@
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\bin\x64\Debug\LZSS.exe.config
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\bin\x64\Debug\LZSS.exe
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\bin\x64\Debug\LZSS.pdb
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\MainWindow.g.cs
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\App.g.cs
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\LZSS_MarkupCompile.cache
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\LZSS_MarkupCompile.lref
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\MainWindow.baml
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\LZSS.g.resources
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\LZSS.Properties.Resources.resources
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\LZSS.csproj.GenerateResource.Cache
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\LZSS.exe
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\LZSS.pdb
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\LZSS.csprojResolveAssemblyReference.cache
