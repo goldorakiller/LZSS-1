@@ -24,14 +24,14 @@ namespace LZSS
         public MainWindow()
         {
             InitializeComponent();
-            var file = File.Open("Piotr_Szczap.bmp", FileMode.Open);
+            var file = File.Open("a.cs", FileMode.Open);
             BinaryReader binary = new BinaryReader(file);
             int length = (int) file.Length;
             var bytecontent = binary.ReadBytes(length);
-            LzssCompressor lzssCompressor = new LzssCompressor(6, bytecontent);
+            LzssCompressor lzssCompressor = new LzssCompressor(64, bytecontent);
             bytes = bytecontent;
             
-            this.DataContext = new LzssDecompressor(6,lzssCompressor.Compress().ToArray());
+            this.DataContext = new LzssDecompressor(64,lzssCompressor.Compress().ToArray());
         }
 
         public static byte[] bytes;

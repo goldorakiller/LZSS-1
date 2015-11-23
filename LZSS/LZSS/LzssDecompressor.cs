@@ -25,9 +25,9 @@ namespace LZSS
             output = new List<byte>();
             Decompress();
             string tmp = "";
-            //BinaryWriter binaryWriter = new BinaryWriter(File.Create("a.bmp"));
-            //binaryWriter.Write(output.ToArray());
-            //binaryWriter.Close();
+            BinaryWriter binaryWriter = new BinaryWriter(File.Create("b.cs"));
+            binaryWriter.Write(output.ToArray());
+            binaryWriter.Close();
             for (int i = 0; i < output.Count; i++)
             {
                 if (output[i] != MainWindow.bytes[i])
@@ -48,10 +48,6 @@ namespace LZSS
 
             for (int i = 1; i < input.Length;)
             {
-                if (i > 40 && i<100)
-                {
-                    System.Diagnostics.Debug.WriteLine("fdsfds");
-                }
                 if (input[i] == 1)
                 {
                     output.Add(input[i+1]);

@@ -70,9 +70,9 @@ namespace LZSS
                         if (buforindex > length)// tu trzeba zmienic, problem z jedna liczba
                         {
                             length = buforindex;
-                            buforindex = 0;
                             buforindexfirstletter = tmpbuforindexfirstletter;
                         }
+                        buforindex = 0;
                         if (dictionary[i] == bufor[buforindex])
                         {
                             if (buforindex == 0)
