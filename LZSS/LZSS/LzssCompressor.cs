@@ -134,6 +134,15 @@ namespace LZSS
 
                 
                 sleep = !fastmode;
+                if (!fastmode)
+                {
+                    if (output.Count < 10)
+                        OutputString = BytesToString(output.ToArray());
+                    else
+                        OutputString = BytesToString(output.Skip(output.Count-10).ToArray());
+                    DictonaryString = BytesToString(dictionary);
+                    BuforString = BytesToString(bufor);
+                }
             }
 
             return output;
@@ -194,47 +203,55 @@ namespace LZSS
             }
         }
 
+        public string BytesToString(byte[] bytes)
+        {
+            string tmp = " | ";
+            foreach (byte b in dictionary)
+            {
+                tmp += b.ToString() + " | ";
+            }
+            return tmp;
+        }
+
+        private string _dictonaryString;
+        private string _buforString, _OutputString;
 
         public string DictonaryString
         {
-            get
+            get { return _dictonaryString; }
+            set
             {
-                string tmp = " | ";
-                foreach (byte b in dictionary)
+                if (value != _dictonaryString)
                 {
-                    tmp += b.ToString() + " | ";
+                    _dictonaryString = value;
+                    OnPropertyChanged();
                 }
-                return tmp;
             }
         }
 
         public string BuforString
         {
-            get
+            get { return _buforString; }
+            set
             {
-                string tmp = " | ";
-                foreach (byte b in bufor)
+                if (value != _buforString)
                 {
-                    tmp += b.ToString() + " | ";
+                    _buforString = value;
+                    OnPropertyChanged();
                 }
-                return tmp;
             }
         }
 
         public string OutputString
         {
-            get
+            get { return _OutputString; }
+            set
             {
-                string tmp = " | ";
-                byte[] tmpoutput;
-                if (output.Count < 10)
-                    tmpoutput = output.ToArray();
-                tmpoutput = output.Skip(output.Count - 10).ToArray();
-                foreach (byte b in tmpoutput)
+                if (value != _OutputString)
                 {
-                    tmp += b.ToString() + " | ";
+                    _OutputString = value;
+                    OnPropertyChanged();
                 }
-                return tmp;
             }
         }
 

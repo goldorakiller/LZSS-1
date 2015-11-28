@@ -8,12 +8,12 @@
         <Label Content="Słownik:" FontSize="24" HorizontalAlignment="Left" Margin="12,31,0,0" VerticalAlignment="Top" Height="80" Width="144"/>
         <Label Content="Bufor:" FontSize="24" HorizontalAlignment="Left" Margin="12,175,0,0" VerticalAlignment="Top" Height="80" Width="144"/>
         <Label Content="Ostatnie wyjścia:" FontSize="24" HorizontalAlignment="Left" Margin="12,301,0,0" VerticalAlignment="Top" Height="80" Width="189"/>
-        <telerik:RadButton Content="Dalej"  Command="{Binding NextCommand, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="40" Margin="26,508,0,0" VerticalAlignment="Top" Width="114"/>
-        <telerik:RadButton Content="Wykonaj całość" Click="AllExecute_click" Command="{Binding AllExecuteCommand, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="40" Margin="323,508,0,0" VerticalAlignment="Top" Width="114"/>
+        <telerik:RadButton Content="Dalej"  Command="{Binding NextCommand}" HorizontalAlignment="Left" Height="40" Margin="26,508,0,0" VerticalAlignment="Top" Width="114"/>
+        <telerik:RadButton Content="Wykonaj całość" Click="AllExecute_click" Command="{Binding AllExecuteCommand}" HorizontalAlignment="Left" Height="40" Margin="323,508,0,0" VerticalAlignment="Top" Width="114"/>
         <telerik:RadButton Content="Zamknij" Click="CancelClick" HorizontalAlignment="Left" Height="40" Margin="668,508,0,0" VerticalAlignment="Top" Width="114"/>
-        <Label Content="{Binding DictonaryString}"  FontSize="24" HorizontalAlignment="Left" Margin="254,31,0,0" VerticalAlignment="Top" Height="80" Width="528"/>
-        <Label Content="{Binding BuforString}" FontSize="24" HorizontalAlignment="Left" Margin="254,175,0,0" VerticalAlignment="Top" Height="80" Width="528"/>
-        <Label Content="{Binding OutputString}" FontSize="24" HorizontalAlignment="Left" Margin="254,301,0,0" VerticalAlignment="Top" Height="80" Width="528"/>
+        <Label Content="{Binding DictonaryString, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  FontSize="24" HorizontalAlignment="Left" Margin="254,31,0,0" VerticalAlignment="Top" Height="80" Width="528"/>
+        <Label Content="{Binding BuforString, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="24" HorizontalAlignment="Left" Margin="254,175,0,0" VerticalAlignment="Top" Height="80" Width="528"/>
+        <Label Content="{Binding OutputString, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" FontSize="24" HorizontalAlignment="Left" Margin="254,301,0,0" VerticalAlignment="Top" Height="80" Width="528"/>
 
     </Grid>
 </Window>
