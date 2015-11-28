@@ -1,12 +1,27 @@
-﻿<Window x:Class="LZSS.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LZSS"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="LZSS.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+
+        <telerik:RadButton Content="Button" HorizontalAlignment="Left" Height="37" Margin="376,33,0,0" VerticalAlignment="Top" Width="85"/>
+        <telerik:RadButton Content="Button" HorizontalAlignment="Left" Height="37" Margin="254,33,0,0" VerticalAlignment="Top" Width="80" Click="RadButton_Click"/>
+        <telerik:RadComboBox HorizontalAlignment="Left" Margin="72,105,0,0" VerticalAlignment="Top" Width="250">
+            <telerik:RadComboBoxItem Content="Item 1"/>
+            <telerik:RadComboBoxItem Content="Item 2"/>
+            <telerik:RadComboBoxItem Content="Item 3"/>
+        </telerik:RadComboBox>
+        <telerik:RadComboBox HorizontalAlignment="Left" Margin="72,167,0,0" VerticalAlignment="Top" Width="250">
+            <telerik:RadComboBoxItem Content="Item 1"/>
+            <telerik:RadComboBoxItem Content="Item 2"/>
+            <telerik:RadComboBoxItem Content="Item 3"/>
+        </telerik:RadComboBox>
+        <telerik:RadButton Content="Button" HorizontalAlignment="Left" Height="37" Margin="284,247,0,0" VerticalAlignment="Top" Width="80"/>
+
     </Grid>
 </Window>

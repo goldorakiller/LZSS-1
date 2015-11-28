@@ -11,22 +11,22 @@ namespace LZSS
     public class LzssCompressor
     {
         readonly int _dictionarysize;
-        byte[] dictionary; //rozwazyc limited queue
-        byte[] input;
-        byte[] bufor;
-        List<byte> output;
+        int[] dictionary; //rozwazyc limited queue
+        int[] input;
+        int[] bufor;
+        List<int> output;
 
-        public LzssCompressor(int dictionarysize, byte[] input)
+        public LzssCompressor(int dictionarysize, int[] input)
         {
             this._dictionarysize = dictionarysize;
             this.input = input;
-            dictionary = new byte[dictionarysize];
-            bufor = new byte[dictionarysize];
-            output = new List<byte>();
+            dictionary = new int[dictionarysize];
+            bufor = new int[dictionarysize];
+            output = new List<int>();
             
         }
 
-        public List<byte> Compress()
+        public List<int> Compress()
         {
             int pointer=0; //index inputa aby wiedziec skad brac do bufora
 
@@ -97,7 +97,7 @@ namespace LZSS
                 if (length == 0)
                 {
                     output.Add(1);// tak koncepcyjnie narazie
-                    //output.Add((byte)',');
+                    //output.Add((int)',');
                     output.Add(bufor[0]);
                     MoveDictionary(1);
                     MoveBufor(length,pointer);
@@ -106,8 +106,8 @@ namespace LZSS
                 else
                 {
                     output.Add(0);
-                    output.Add((byte)buforindexfirstletter);
-                    output.Add((byte)length);
+                    output.Add((int)buforindexfirstletter);
+                    output.Add((int)length);
                     MoveDictionary(length);
                     MoveBufor(length, pointer);
                     pointer+= length;
@@ -146,7 +146,7 @@ namespace LZSS
                 }
                 else
                 {
-                    bufor[bufor.Length - 1] = (byte)'\0';
+                    bufor[bufor.Length - 1] = (int)'\0';
                 }
                 
                 
@@ -165,7 +165,7 @@ namespace LZSS
                     }
                     else
                     {
-                        bufor[bufor.Length - length + i] = (byte) '\0';
+                        bufor[bufor.Length - length + i] = (int) '\0';
                     }
                     
                 }

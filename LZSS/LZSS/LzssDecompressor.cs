@@ -11,26 +11,26 @@ namespace LZSS
     class LzssDecompressor
     {
         readonly int _dictionarysize;
-        byte[] dictionary; //rozwazyc limited queue
-        byte[] input;
-        byte[] bufor;
-        List<byte> output;
+        int[] dictionary; //rozwazyc limited queue
+        int[] input;
+        int[] bufor;
+        List<int> output;
 
-        public LzssDecompressor(int dictionarysize, byte[] input)
+        public LzssDecompressor(int dictionarysize, int[] input)
         {
             this._dictionarysize = dictionarysize;
             this.input = input;
-            dictionary = new byte[dictionarysize];
-            bufor = new byte[dictionarysize];
-            output = new List<byte>();
+            dictionary = new int[dictionarysize];
+            bufor = new int[dictionarysize];
+            output = new List<int>();
             Decompress();
             string tmp = "";
             BinaryWriter binaryWriter = new BinaryWriter(File.Create("b.cs"));
-            binaryWriter.Write(output.ToArray());
+            binaryWriter.Write(MainWindow.IntToBytes(output.ToArray()));
             binaryWriter.Close();
             for (int i = 0; i < output.Count; i++)
             {
-                if (output[i] != MainWindow.bytes[i])
+                if (output[i] != MainWindow.ints[i])
                 {
                     System.Diagnostics.Debug.WriteLine(i);
                 }
@@ -51,12 +51,12 @@ namespace LZSS
                 if (input[i] == 1)
                 {
                     output.Add(input[i+1]);
-                    MoveDictionary(1, new List<byte> { input[i + 1] });
+                    MoveDictionary(1, new List<int> { input[i + 1] });
                     i += 2;
                 }
                 else if (input[i] == 0)
                 {
-                    List<byte> tmpoutput = new List<byte>();
+                    List<int> tmpoutput = new List<int>();
                     for (int j = 0; j < input[i + 2]; j++)
                     {
                         output.Add(dictionary[input[i + 1]+j]);
@@ -73,7 +73,7 @@ namespace LZSS
 
         }
 
-        public void MoveDictionary(int length, List<byte> content)
+        public void MoveDictionary(int length, List<int> content)
         {
             for (int i = length; i < dictionary.Length; i++)
             {
@@ -84,6 +84,8 @@ namespace LZSS
                 dictionary[dictionary.Length - length + i] = content[i];
             }
         }
+
+        
 
     }
 }
