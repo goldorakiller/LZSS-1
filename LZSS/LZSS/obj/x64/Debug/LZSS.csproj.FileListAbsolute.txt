@@ -11,7 +11,6 @@ F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\LZSS.Properties.Resources.resources
 F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\LZSS.csproj.GenerateResource.Cache
 F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\LZSS.exe
 F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\LZSS.pdb
-F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\LZSS.csprojResolveAssemblyReference.cache
 C:\Users\Piotr\Desktop\LZSS\LZSS\LZSS\LZSS\bin\x64\Debug\LZSS.exe.config
 C:\Users\Piotr\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\LZSS.exe
 C:\Users\Piotr\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\LZSS.pdb
@@ -26,3 +25,16 @@ C:\Users\Piotr\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\MainWindow.baml
 C:\Users\Piotr\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\LZSS.g.resources
 C:\Users\Piotr\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\LZSS.Properties.Resources.resources
 C:\Users\Piotr\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\LZSS.csproj.GenerateResource.Cache
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\Details.baml
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\Details.g.cs
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\bin\x64\Debug\Telerik.Windows.Controls.dll
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\bin\x64\Debug\Telerik.Windows.Controls.Input.dll
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\bin\x64\Debug\Telerik.Windows.Controls.xml
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\bin\x64\Debug\Telerik.Windows.Controls.Input.xml
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\bin\x64\Debug\de\Telerik.Windows.Controls.resources.dll
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\bin\x64\Debug\es\Telerik.Windows.Controls.resources.dll
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\bin\x64\Debug\fr\Telerik.Windows.Controls.resources.dll
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\bin\x64\Debug\it\Telerik.Windows.Controls.resources.dll
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\bin\x64\Debug\nl\Telerik.Windows.Controls.resources.dll
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\bin\x64\Debug\tr\Telerik.Windows.Controls.resources.dll
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\LZSS.exe.licenses

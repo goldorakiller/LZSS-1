@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Telerik.Windows.Controls;
 
 namespace LZSS
 {
@@ -24,56 +25,101 @@ namespace LZSS
         public MainWindow()
         {
             InitializeComponent();
-            var file = File.Open("a.cs", FileMode.Open);
-            BinaryReader binary = new BinaryReader(file);
-            int length = (int) file.Length;
-            var bytecontent = binary.ReadBytes(length);
-            var intcontent = BytesToInt(bytecontent);
-            LzssCompressor lzssCompressor = new LzssCompressor(64, intcontent);
-            ints = intcontent;
+            Przeglądaj_zapisz.IsEnabled = false;
+            Kompresuj.IsEnabled = false;
+            Dekompresuj.IsEnabled = false;
+        }
+
+        public static byte[] bytes;
+
+        public byte[] input;
+
+        public byte[] output;
+
+        public byte dictionarysize=5;
+
+
+        
+        private void Przeglądaj_Click(object sender, RoutedEventArgs e)
+        {
+            Wczytaj wczytaj = new Wczytaj();
+            input=wczytaj.odczyt_zawartosci_binarnej();
+            Kompresuj.IsEnabled = true;
+            Dekompresuj.IsEnabled = true;
+        }
+
+        private void Kompresuj_OnClick_Click(object sender, RoutedEventArgs e)
+        {
+            LzssCompressor lzssCompressor = new LzssCompressor(dictionarysize,input, this);
+            Details details = new Details(true,lzssCompressor,this);
+            details.Show();
             
-            this.DataContext = new LzssDecompressor(64,lzssCompressor.Compress().ToArray());
+            Przeglądaj_zapisz.IsEnabled = true;
         }
 
-        public static int[] ints;
-
-
-        public static byte[] IntToBytes(int[] input)
+        private void Przeglądaj_zapisz_Click(object sender, RoutedEventArgs e)
         {
-            byte[] output = new byte[input.Length * 4];
-            for (int i = 0; i < input.Length; i++)
-            {
-                //int tmp = input[i]%((int) Math.Pow(2, 24));
-                //int tmp2 = tmp%(int) Math.Pow(2, 16);
-                //int tmp3 = tmp2%256;
-                //output[i * 4] = (byte)(input[i] - tmp / (int)Math.Pow(2, 24));
-                //output[i*4+1] = (byte)((tmp-tmp2)/(int)Math.Pow(2, 16));
-                //output[i*4+2] = (byte)((tmp2-tmp3)/256);
-                //output[i*4+3] = (byte)(tmp3);
+            Zapisz zapisz = new Zapisz(output);
+        }
 
-                output[i * 4 + 0] = (byte)(input[i] >> 24);
-                output[i * 4 + 1] = (byte)(input[i] >> 16);
-                output[i * 4 + 2] = (byte)(input[i] >> 8);
-                output[i * 4 + 3] = (byte)input[i];
+        private void Dekompresuj_Click(object sender, RoutedEventArgs e)
+        {
+            LzssDecompressor lzssDecompressor = new LzssDecompressor(dictionarysize,input);
+            output = lzssDecompressor.Decompress();
+            Przeglądaj_zapisz.IsEnabled = true;
+        }
+
+        public void Czysc_OnClick_Click(object sender, RoutedEventArgs e)
+        {
+            Przeglądaj_zapisz.IsEnabled = false;
+            Kompresuj.IsEnabled = false;
+            Dekompresuj.IsEnabled = false;
+            bytes=null;
+            input=null;
+            output=null;
+            dictionarysize=5;
+            Długość_słownika.SelectedIndex = 0;
+            Tryb_działania.SelectedIndex = 0;
+        }
+
+        private void Długość_słownika_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var combo = sender as RadComboBox;
+            var selecteditem = combo.SelectedItem as RadComboBoxItem;
+
+            if (selecteditem.Content.ToString() == "5")
+            {
+                dictionarysize = 5;
+            }
+            if (selecteditem.Content.ToString() == "10")
+            {
+                dictionarysize = 10;
+            }
+            if (selecteditem.Content.ToString() == "25")
+            {
+                dictionarysize = 25;
+            }
+            if (selecteditem.Content.ToString() == "50")
+            {
+                dictionarysize = 50;
+            }
+            if (selecteditem.Content.ToString() == "100")
+            {
+                dictionarysize = 100;
+            }
+            if (selecteditem.Content.ToString() == "200")
+            {
+                dictionarysize = 200;
+            }
+            if (selecteditem.Content.ToString() == "255")
+            {
+                dictionarysize = 255;
             }
 
-            return output;
-        }
-
-        public static int[] BytesToInt(byte[] input)
-        {
-            int[] output = new int[input.Length / 4];
-            for (int i = 0; i < input.Length; i = i + 4)
-            {
-                output[i / 4] = input[i] * 8 * 8 * 8 + input[i + 1] * 8 * 8 + input[i + 2] * 8 + input[i + 3];
-            }
-
-            return output;
-        }
-
-        private void RadButton_Click(object sender, RoutedEventArgs e)
-        {
 
         }
+
+
+        
     }
 }

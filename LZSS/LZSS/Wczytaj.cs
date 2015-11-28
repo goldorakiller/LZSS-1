@@ -33,7 +33,7 @@ namespace LZSS
                 var plik = new StreamReader(filename);
                 var output = plik.ReadToEnd();
                 plik.Close();
-                return ;
+                return null ;
             }
             else
             {

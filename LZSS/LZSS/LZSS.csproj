@@ -71,10 +71,10 @@
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="Telerik.Windows.Controls">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WPF Q3 2015\Binaries\WPF45\Telerik.Windows.Controls.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WPF Q3 2015\Binaries\WPF45\Telerik.Windows.Controls.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Windows.Controls.Input">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Telerik\UI for WPF Q3 2015\Binaries\WPF45\Telerik.Windows.Controls.Input.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WPF Q3 2015\Binaries\WPF45\Telerik.Windows.Controls.Input.dll</HintPath>
     </Reference>
     <Reference Include="UIAutomationProvider" />
     <Reference Include="UIAutomationTypes" />
@@ -87,6 +87,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Wczytaj.cs" />
     <Compile Include="Zapisz.cs" />
     <Page Include="Details.xaml">

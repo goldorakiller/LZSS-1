@@ -17,6 +17,11 @@ namespace LZSS
             zapis_zawartosci(zawartosc);
         }
 
+        public Zapisz(byte[] zawartosc)
+        {
+            zapis_zawartosci(zawartosc);
+        }
+
         bool zapis_zawartosci(string zawartosc)
         {
             var dlg = new Microsoft.Win32.SaveFileDialog { DefaultExt = ".txt", Filter = "Text documents (.txt)|*.txt" };
@@ -44,7 +49,7 @@ namespace LZSS
 
         bool zapis_zawartosci(byte[] zawartosc)
         {
-            var dlg = new Microsoft.Win32.SaveFileDialog { DefaultExt = ".txt", Filter = "Text documents (.txt)|*.txt" };
+            var dlg = new Microsoft.Win32.SaveFileDialog();
             // Set filter for file extension and default file extension 
 
             // Display OpenFileDialog by calling ShowDialog method 
@@ -55,7 +60,7 @@ namespace LZSS
             {
                 // Open document 
                 filename = dlg.FileName;
-                var file = File.Open(filename, FileMode.Open);
+                var file = File.Open(filename, FileMode.OpenOrCreate);
                 var plik = new BinaryWriter(file);
                 plik.Write(zawartosc);
                 plik.Close();

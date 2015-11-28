@@ -9,19 +9,28 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
 
-        <telerik:RadButton Content="Button" HorizontalAlignment="Left" Height="37" Margin="376,33,0,0" VerticalAlignment="Top" Width="85"/>
-        <telerik:RadButton Content="Button" HorizontalAlignment="Left" Height="37" Margin="254,33,0,0" VerticalAlignment="Top" Width="80" Click="RadButton_Click"/>
-        <telerik:RadComboBox HorizontalAlignment="Left" Margin="72,105,0,0" VerticalAlignment="Top" Width="250">
-            <telerik:RadComboBoxItem Content="Item 1"/>
-            <telerik:RadComboBoxItem Content="Item 2"/>
-            <telerik:RadComboBoxItem Content="Item 3"/>
+        <telerik:RadButton Content="Przeglądaj" x:Name="Przeglądaj" HorizontalAlignment="Left" Height="37" Margin="260,100,0,0" VerticalAlignment="Top" Width="85" Click="Przeglądaj_Click"/>
+        <telerik:RadButton Content="Kompresuj" x:Name="Kompresuj" HorizontalAlignment="Left" Height="37" Margin="81,261,0,0" VerticalAlignment="Top" Width="80" Click="Kompresuj_OnClick_Click"/>
+        <telerik:RadComboBox x:Name="Tryb_działania" HorizontalAlignment="Left" Margin="244,10,0,0" VerticalAlignment="Top" Width="250" SelectedIndex="0">
+            <telerik:RadComboBoxItem Content="Szybki"/>
+            <telerik:RadComboBoxItem Content="Pokazowy"/>
         </telerik:RadComboBox>
-        <telerik:RadComboBox HorizontalAlignment="Left" Margin="72,167,0,0" VerticalAlignment="Top" Width="250">
-            <telerik:RadComboBoxItem Content="Item 1"/>
-            <telerik:RadComboBoxItem Content="Item 2"/>
-            <telerik:RadComboBoxItem Content="Item 3"/>
+        <telerik:RadComboBox x:Name="Długość_słownika" HorizontalAlignment="Left" Margin="244,57,0,0" VerticalAlignment="Top" Width="250" SelectedIndex="0" SelectionChanged="Długość_słownika_SelectionChanged">
+            <telerik:RadComboBoxItem Content="5"/>
+            <telerik:RadComboBoxItem Content="10"/>
+            <telerik:RadComboBoxItem Content="25"/>
+            <telerik:RadComboBoxItem Content="50"> </telerik:RadComboBoxItem>
+            <telerik:RadComboBoxItem Content="100"></telerik:RadComboBoxItem>
+            <telerik:RadComboBoxItem Content="200"></telerik:RadComboBoxItem>
+            <telerik:RadComboBoxItem Content="255"></telerik:RadComboBoxItem>
         </telerik:RadComboBox>
-        <telerik:RadButton Content="Button" HorizontalAlignment="Left" Height="37" Margin="284,247,0,0" VerticalAlignment="Top" Width="80"/>
+        <telerik:RadButton Content="Dekompresuj" x:Name="Dekompresuj" HorizontalAlignment="Left" Height="37" Margin="316,261,0,0" VerticalAlignment="Top" Width="80" Click="Dekompresuj_Click"/>
+        <Label Content="Wybierz tryb działania" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="31" Width="190"/>
+        <Label Content="Wybierz rozmiar słownika" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Height="31" Width="190"/>
+        <Label Content="Plik wejściowy" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Height="32" Width="190"/>
+        <Label Content="Plik wyjściowy" HorizontalAlignment="Left" Margin="10,164,0,0" VerticalAlignment="Top" Height="31" Width="190"/>
+        <telerik:RadButton Content="Przeglądaj" x:Name="Przeglądaj_zapisz" HorizontalAlignment="Left" Height="37" Margin="260,149,0,0" VerticalAlignment="Top" Width="85" Click="Przeglądaj_zapisz_Click"/>
+        <telerik:RadButton Content="Czyść" x:Name="Czysc" HorizontalAlignment="Left" Height="31" Margin="414,204,0,0" VerticalAlignment="Top" Width="80" Click="Czysc_OnClick_Click"/>
 
     </Grid>
 </Window>

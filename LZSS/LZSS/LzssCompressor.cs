@@ -1,32 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
+using LZSS.Annotations;
+using Telerik.Windows.Controls;
 
 namespace LZSS
 {
-    public class LzssCompressor
+    public class LzssCompressor : INotifyPropertyChanged
     {
-        readonly int _dictionarysize;
-        int[] dictionary; //rozwazyc limited queue
-        int[] input;
-        int[] bufor;
-        List<int> output;
+        readonly byte _dictionarysize;
+        byte[] dictionary; //rozwazyc limited queue
+        byte[] input;
+        byte[] bufor;
+        List<byte> output;
+        private bool sleep = false;
+        private bool fastmode = false;
+        public bool start = false;
 
-        public LzssCompressor(int dictionarysize, int[] input)
+        private MainWindow window;
+
+        public LzssCompressor(byte dictionarysize, byte[] input,MainWindow window)
         {
+            this.window = window;
+            AllExecuteCommand = new DelegateCommand(AllExecute);
+            NextCommand = new DelegateCommand(NextExecute);
             this._dictionarysize = dictionarysize;
             this.input = input;
-            dictionary = new int[dictionarysize];
-            bufor = new int[dictionarysize];
-            output = new List<int>();
+            dictionary = new byte[dictionarysize];
+            bufor = new byte[dictionarysize];
+            output = new List<byte>();
             
         }
 
-        public List<int> Compress()
+       
+
+        public List<byte> Compress()
         {
             int pointer=0; //index inputa aby wiedziec skad brac do bufora
 
@@ -42,7 +57,10 @@ namespace LZSS
 
             while (pointer<_dictionarysize+input.Length)
             {
+                while (sleep)
+                {
 
+                }
                 
                 //while (counter == 0 && dictionaryindex < _dictionarysize) // sprawa bardzo dyskusyjna 
                 //{
@@ -51,11 +69,12 @@ namespace LZSS
                 //    dictionaryindex++;
                 //}
 
-                int buforindex = 0, length=0;
-                int buforindexfirstletter=0;
-                int tmpbuforindexfirstletter = 0;
-                for (int i = 0; i < _dictionarysize; i++)
+                byte buforindex = 0, length=0;
+                byte buforindexfirstletter=0;
+                byte tmpbuforindexfirstletter = 0;
+                for (byte i = 0; i < _dictionarysize; i++)
                 {
+                    
                     
                     if (dictionary[i] == bufor[buforindex])
                     {
@@ -106,14 +125,15 @@ namespace LZSS
                 else
                 {
                     output.Add(0);
-                    output.Add((int)buforindexfirstletter);
-                    output.Add((int)length);
+                    output.Add(buforindexfirstletter);
+                    output.Add(length);
                     MoveDictionary(length);
                     MoveBufor(length, pointer);
                     pointer+= length;
                 }
 
                 
+                sleep = !fastmode;
             }
 
             return output;
@@ -175,5 +195,86 @@ namespace LZSS
         }
 
 
+        public string DictonaryString
+        {
+            get
+            {
+                string tmp = " | ";
+                foreach (byte b in dictionary)
+                {
+                    tmp += b.ToString() + " | ";
+                }
+                return tmp;
+            }
+        }
+
+        public string BuforString
+        {
+            get
+            {
+                string tmp = " | ";
+                foreach (byte b in bufor)
+                {
+                    tmp += b.ToString() + " | ";
+                }
+                return tmp;
+            }
+        }
+
+        public string OutputString
+        {
+            get
+            {
+                string tmp = " | ";
+                byte[] tmpoutput;
+                if (output.Count < 10)
+                    tmpoutput = output.ToArray();
+                tmpoutput = output.Skip(output.Count - 10).ToArray();
+                foreach (byte b in tmpoutput)
+                {
+                    tmp += b.ToString() + " | ";
+                }
+                return tmp;
+            }
+        }
+
+        public ICommand NextCommand { get; set; }
+        public ICommand AllExecuteCommand { get; set; }
+        
+
+
+        private void NextExecute(object obj)
+        {
+            sleep = false;
+            if (!start)
+            {
+                Task.Factory.StartNew(() =>
+                {
+                    window.output = Compress().ToArray();
+                });
+                
+                start = true;
+            }
+            OnPropertyChanged();
+        }
+
+        private void AllExecute(object obj)
+        {
+            fastmode = true;
+            sleep = false;
+        }
+
+        
+        
+        
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

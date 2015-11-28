@@ -19,9 +19,30 @@ namespace LZSS
     /// </summary>
     public partial class Details : Window
     {
-        public Details()
+        private MainWindow window;
+        public Details(bool compress, object algorithm, MainWindow window)
         {
             InitializeComponent();
+            if (compress)
+            {
+                this.DataContext = algorithm as LzssCompressor;
+            }
+            else
+            {
+                this.DataContext = algorithm as LzssDecompressor;
+            }
+            this.window = window;
+        }
+
+        private void CancelClick(object sender, RoutedEventArgs e)
+        {
+            window.Czysc_OnClick_Click(null,null);
+            this.Close();
+        }
+
+        private void AllExecute_click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
