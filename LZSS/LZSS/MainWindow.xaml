@@ -11,7 +11,7 @@
 
         <telerik:RadButton Content="Przeglądaj" x:Name="Przeglądaj" HorizontalAlignment="Left" Height="37" Margin="260,100,0,0" VerticalAlignment="Top" Width="85" Click="Przeglądaj_Click"/>
         <telerik:RadButton Content="Kompresuj" x:Name="Kompresuj" HorizontalAlignment="Left" Height="37" Margin="81,261,0,0" VerticalAlignment="Top" Width="80" Click="Kompresuj_OnClick_Click"/>
-        <telerik:RadComboBox x:Name="Tryb_działania" HorizontalAlignment="Left" Margin="244,10,0,0" VerticalAlignment="Top" Width="250" SelectedIndex="0">
+        <telerik:RadComboBox x:Name="Tryb_działania" HorizontalAlignment="Left" Margin="244,10,0,0" VerticalAlignment="Top" Width="250" SelectedIndex="0" SelectionChanged="Tryb_działania_SelectionChanged">
             <telerik:RadComboBoxItem Content="Szybki"/>
             <telerik:RadComboBoxItem Content="Pokazowy"/>
         </telerik:RadComboBox>

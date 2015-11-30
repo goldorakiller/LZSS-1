@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,6 +29,12 @@ namespace LZSS
             Przeglądaj_zapisz.IsEnabled = false;
             Kompresuj.IsEnabled = false;
             Dekompresuj.IsEnabled = false;
+            
+        }
+
+        public void CompressAsync()
+        {
+            
         }
 
         public static byte[] bytes;
@@ -38,7 +45,9 @@ namespace LZSS
 
         public byte dictionarysize=5;
 
+        public Thread thread;
 
+        private bool fastmode=true;
         
         private void Przeglądaj_Click(object sender, RoutedEventArgs e)
         {
@@ -50,22 +59,44 @@ namespace LZSS
 
         private void Kompresuj_OnClick_Click(object sender, RoutedEventArgs e)
         {
-            LzssCompressor lzssCompressor = new LzssCompressor(dictionarysize,input, this);
-            Details details = new Details(true,lzssCompressor,this);
-            details.Show();
+            LzssCompressor lzssCompressor = new LzssCompressor(dictionarysize,input, this,fastmode);
+            thread = lzssCompressor.thread;
+            if (fastmode)
+            {
+                lzssCompressor.sleep = false;
+                thread.Start();
+            }
+            else
+            {
+                Details details = new Details(true, lzssCompressor, this);
+                details.Show();
+            }
+            
             
             Przeglądaj_zapisz.IsEnabled = true;
         }
 
         private void Przeglądaj_zapisz_Click(object sender, RoutedEventArgs e)
         {
+            thread.Join();
             Zapisz zapisz = new Zapisz(output);
         }
 
         private void Dekompresuj_Click(object sender, RoutedEventArgs e)
         {
-            LzssDecompressor lzssDecompressor = new LzssDecompressor(dictionarysize,input);
-            output = lzssDecompressor.Decompress();
+            LzssDecompressor lzssDecompressor = new LzssDecompressor(dictionarysize,input,this,fastmode);
+            thread = lzssDecompressor.thread;
+            if (fastmode)
+            {
+                lzssDecompressor.sleep = false;
+                thread.Start();
+            }
+            else
+            {
+                Details details = new Details(true, lzssDecompressor, this);
+                details.Show();
+            }
+
             Przeglądaj_zapisz.IsEnabled = true;
         }
 
@@ -117,6 +148,22 @@ namespace LZSS
             }
 
 
+        }
+
+        private void Tryb_działania_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var combo = sender as RadComboBox;
+            var selecteditem = combo.SelectedItem as RadComboBoxItem;
+
+            if (selecteditem.Content.ToString() == "Szybki")
+            {
+                fastmode = true;
+            }
+
+            if (selecteditem.Content.ToString() == "Pokazowy")
+            {
+                fastmode = false;
+            }
         }
 
 

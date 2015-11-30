@@ -5,6 +5,7 @@ using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -20,14 +21,16 @@ namespace LZSS
         byte[] input;
         byte[] bufor;
         List<byte> output;
-        private bool sleep = false;
+        public bool sleep = false;
         private bool fastmode = false;
         public bool start = false;
+        public Thread thread;
 
         private MainWindow window;
 
-        public LzssCompressor(byte dictionarysize, byte[] input,MainWindow window)
+        public LzssCompressor(byte dictionarysize, byte[] input,MainWindow window, bool fastmode)
         {
+            this.fastmode = fastmode;
             this.window = window;
             AllExecuteCommand = new DelegateCommand(AllExecute);
             NextCommand = new DelegateCommand(NextExecute);
@@ -36,10 +39,14 @@ namespace LZSS
             dictionary = new byte[dictionarysize];
             bufor = new byte[dictionarysize];
             output = new List<byte>();
-            
+            thread = new Thread(CompressAsync);
         }
 
-       
+        private void CompressAsync()
+        {
+            window.output = Compress().ToArray();
+        }
+
 
         public List<byte> Compress()
         {
@@ -265,10 +272,7 @@ namespace LZSS
             sleep = false;
             if (!start)
             {
-                Task.Factory.StartNew(() =>
-                {
-                    window.output = Compress().ToArray();
-                });
+                thread.Start();
                 
                 start = true;
             }
@@ -279,6 +283,12 @@ namespace LZSS
         {
             fastmode = true;
             sleep = false;
+            if (!start)
+            {
+                thread.Start();
+
+                start = true;
+            }
         }
 
         
