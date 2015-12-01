@@ -39,3 +39,9 @@ F:\Desktop\LZSS\LZSS\LZSS\LZSS\bin\x64\Debug\nl\Telerik.Windows.Controls.resourc
 F:\Desktop\LZSS\LZSS\LZSS\LZSS\bin\x64\Debug\tr\Telerik.Windows.Controls.resources.dll
 F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\LZSS.exe.licenses
 F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\LZSS.csprojResolveAssemblyReference.cache
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\Chart.baml
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\obj\x64\Debug\Chart.g.cs
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\bin\x64\Debug\Telerik.Windows.Controls.Charting.dll
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\bin\x64\Debug\Telerik.Windows.Data.dll
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\bin\x64\Debug\Telerik.Windows.Controls.Charting.xml
+F:\Desktop\LZSS\LZSS\LZSS\LZSS\bin\x64\Debug\Telerik.Windows.Data.xml

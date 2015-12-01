@@ -29,7 +29,7 @@ namespace LZSS
             Przeglądaj_zapisz.IsEnabled = false;
             Kompresuj.IsEnabled = false;
             Dekompresuj.IsEnabled = false;
-            
+            Kompresuj_Copy.IsEnabled = false;
         }
 
         public void CompressAsync()
@@ -72,7 +72,9 @@ namespace LZSS
                 details.Show();
             }
             
+            Kompresuj_Copy.IsEnabled = true;
             
+
             Przeglądaj_zapisz.IsEnabled = true;
         }
 
@@ -167,6 +169,11 @@ namespace LZSS
         }
 
 
-        
+        private void Wykres_OnClick_Click(object sender, RoutedEventArgs e)
+        {
+            thread.Join();
+            Chart chart = new Chart(output);
+            chart.Show();
+        }
     }
 }

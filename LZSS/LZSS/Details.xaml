@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         x:Class="LZSS.Details"
-        Title="Details" Height="600" Width="800">
+        Title="Szczegóły" Height="600" Width="800">
     <Grid>
         <Label Content="Słownik:" FontSize="24" HorizontalAlignment="Left" Margin="12,31,0,0" VerticalAlignment="Top" Height="80" Width="144"/>
         <Label Content="Bufor:" FontSize="24" HorizontalAlignment="Left" Margin="12,175,0,0" VerticalAlignment="Top" Height="80" Width="144"/>

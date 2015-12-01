@@ -213,7 +213,7 @@ namespace LZSS
         public string BytesToString(byte[] bytes)
         {
             string tmp = " | ";
-            foreach (byte b in dictionary)
+            foreach (byte b in bytes)
             {
                 tmp += b.ToString() + " | ";
             }
