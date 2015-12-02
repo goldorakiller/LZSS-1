@@ -49,7 +49,7 @@ namespace LZSS
             {
                 if (input[i] == 1)
                 {
-                    mojaKolekcja.Dodaj(1,1);
+                    mojaKolekcja.Dodaj(0,1);
                     i += 2;
                 }
                 else if (input[i] == 0)
