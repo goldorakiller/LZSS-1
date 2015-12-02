@@ -88,7 +88,7 @@ namespace LZSS
                     else
                         OutputString = BytesToString(output.Skip(output.Count - 10).ToArray());
                     DictonaryString = BytesToString(dictionary);
-                    BuforString = BytesToString(bufor);
+                    BuforString = "Niepotrzebny";
                 }
             }
 

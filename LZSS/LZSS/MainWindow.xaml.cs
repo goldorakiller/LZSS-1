@@ -95,7 +95,7 @@ namespace LZSS
             }
             else
             {
-                Details details = new Details(true, lzssDecompressor, this);
+                Details details = new Details(false, lzssDecompressor, this);
                 details.Show();
             }
 
@@ -104,6 +104,7 @@ namespace LZSS
 
         public void Czysc_OnClick_Click(object sender, RoutedEventArgs e)
         {
+            Kompresuj_Copy.IsEnabled = false;
             Przeglądaj_zapisz.IsEnabled = false;
             Kompresuj.IsEnabled = false;
             Dekompresuj.IsEnabled = false;
