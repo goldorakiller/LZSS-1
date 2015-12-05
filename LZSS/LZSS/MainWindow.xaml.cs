@@ -121,36 +121,27 @@ namespace LZSS
             var combo = sender as RadComboBox;
             var selecteditem = combo.SelectedItem as RadComboBoxItem;
 
-            if (selecteditem.Content.ToString() == "5")
+            if (selecteditem.Content.ToString() == "8")
             {
-                dictionarysize = 5;
+                dictionarysize = 8;
             }
-            if (selecteditem.Content.ToString() == "10")
+            if (selecteditem.Content.ToString() == "16")
             {
-                dictionarysize = 10;
+                dictionarysize = 16;
             }
-            if (selecteditem.Content.ToString() == "25")
+            if (selecteditem.Content.ToString() == "32")
             {
-                dictionarysize = 25;
+                dictionarysize = 32;
             }
-            if (selecteditem.Content.ToString() == "50")
+            if (selecteditem.Content.ToString() == "64")
             {
-                dictionarysize = 50;
+                dictionarysize = 64;
             }
-            if (selecteditem.Content.ToString() == "100")
+            if (selecteditem.Content.ToString() == "128")
             {
-                dictionarysize = 100;
+                dictionarysize = 128;
             }
-            if (selecteditem.Content.ToString() == "200")
-            {
-                dictionarysize = 200;
-            }
-            if (selecteditem.Content.ToString() == "255")
-            {
-                dictionarysize = 255;
-            }
-
-
+            
         }
 
         private void Tryb_działania_SelectionChanged(object sender, SelectionChangedEventArgs e)
