@@ -43,7 +43,7 @@ namespace LZSS
 
         public byte[] output;
 
-        public byte dictionarysize=5;
+        public byte dictionarysize=255;
 
         public Thread thread;
 
@@ -111,7 +111,7 @@ namespace LZSS
             bytes=null;
             input=null;
             output=null;
-            dictionarysize=5;
+            dictionarysize=255;
             Długość_słownika.SelectedIndex = 0;
             Tryb_działania.SelectedIndex = 0;
         }
@@ -121,26 +121,27 @@ namespace LZSS
             var combo = sender as RadComboBox;
             var selecteditem = combo.SelectedItem as RadComboBoxItem;
 
-            if (selecteditem.Content.ToString() == "8")
+            if (selecteditem.Content.ToString() == "256")
             {
-                dictionarysize = 8;
-            }
-            if (selecteditem.Content.ToString() == "16")
-            {
-                dictionarysize = 16;
-            }
-            if (selecteditem.Content.ToString() == "32")
-            {
-                dictionarysize = 32;
-            }
-            if (selecteditem.Content.ToString() == "64")
-            {
-                dictionarysize = 64;
+                dictionarysize = 255;
             }
             if (selecteditem.Content.ToString() == "128")
             {
-                dictionarysize = 128;
+                dictionarysize = 127;
             }
+            if (selecteditem.Content.ToString() == "16")
+            {
+                dictionarysize = 15;
+            }
+            if (selecteditem.Content.ToString() == "32")
+            {
+                dictionarysize = 31;
+            }
+            if (selecteditem.Content.ToString() == "64")
+            {
+                dictionarysize = 63;
+            }
+            
             
         }
 

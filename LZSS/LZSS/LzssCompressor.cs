@@ -69,13 +69,6 @@ namespace LZSS
 
                 }
                 
-                //while (counter == 0 && dictionaryindex < _dictionarysize) // sprawa bardzo dyskusyjna 
-                //{
-                //    while (dictionary[counter + dictionaryindex] == bufor[counter])
-                //        counter++;
-                //    dictionaryindex++;
-                //}
-
                 byte buforindex = 0, length=0;
                 byte buforindexfirstletter=0;
                 byte tmpbuforindexfirstletter = 0;
@@ -93,7 +86,7 @@ namespace LZSS
                     }
                     else
                     {
-                        if (buforindex > length)// tu trzeba zmienic, problem z jedna liczba
+                        if (buforindex > length)
                         {
                             length = buforindex;
                             buforindexfirstletter = tmpbuforindexfirstletter;
@@ -120,10 +113,9 @@ namespace LZSS
                 }
                 //
 
-                if (length == 0)
+                if (length == 0 || length==1)
                 {
-                    output.Add(1);// tak koncepcyjnie narazie
-                    //output.Add((int)',');
+                    output.Add(1);
                     output.Add(bufor[0]);
                     MoveDictionary(1);
                     MoveBufor(length,pointer);

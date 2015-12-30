@@ -16,11 +16,11 @@
             <telerik:RadComboBoxItem Content="Pokazowy"/>
         </telerik:RadComboBox>
         <telerik:RadComboBox x:Name="Długość_słownika" HorizontalAlignment="Left" Margin="247,161,0,0" VerticalAlignment="Top" Width="250" SelectedIndex="0" SelectionChanged="Długość_słownika_SelectionChanged">
-            <telerik:RadComboBoxItem Content="8"/>
-            <telerik:RadComboBoxItem Content="16"/>
-            <telerik:RadComboBoxItem Content="32"/>
-            <telerik:RadComboBoxItem Content="64"></telerik:RadComboBoxItem>
-            <telerik:RadComboBoxItem Content="128"></telerik:RadComboBoxItem>
+            <telerik:RadComboBoxItem Content="256"/>
+            <telerik:RadComboBoxItem Content="128"/>
+            <telerik:RadComboBoxItem Content="64"/>
+            <telerik:RadComboBoxItem Content="32"></telerik:RadComboBoxItem>
+            <telerik:RadComboBoxItem Content="16"></telerik:RadComboBoxItem>
             
         </telerik:RadComboBox>
         <telerik:RadButton Content="Dekompresuj" x:Name="Dekompresuj" HorizontalAlignment="Left" Height="37" Margin="319,365,0,0" VerticalAlignment="Top" Width="80" Click="Dekompresuj_Click"/>
