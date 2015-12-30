@@ -81,6 +81,11 @@ namespace LZSS
         private void Przeglądaj_zapisz_Click(object sender, RoutedEventArgs e)
         {
             thread.Join();
+            if (output == null)
+            {
+                MessageBox.Show("Brak danych do zapisania");
+                return;
+            }
             Zapisz zapisz = new Zapisz(output);
         }
 

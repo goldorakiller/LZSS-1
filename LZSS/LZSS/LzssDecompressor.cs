@@ -43,7 +43,15 @@ namespace LZSS
 
         private void CompressAsync()
         {
-            window.output = Decompress().ToArray();
+            try
+            {
+                window.output = Decompress().ToArray();
+            }
+            catch (Exception)
+            {
+                
+            }
+           
         }
 
         public byte[] Decompress()
@@ -59,26 +67,32 @@ namespace LZSS
                 {
 
                 }
-                if (input[i] == 1)
+                try
                 {
-                    output.Add(input[i+1]);
-                    MoveDictionary(1, new List<byte> { input[i + 1] });
-                    i += 2;
-                }
-                else if (input[i] == 0)
-                {
-                    List<byte> tmpoutput = new List<byte>();
-                    for (int j = 0; j < input[i + 2]; j++)
+                    if (input[i] == 1)
                     {
-                        output.Add(dictionary[input[i + 1]+j]);
-                        tmpoutput.Add(dictionary[input[i + 1] + j]);
+                        output.Add(input[i + 1]);
+                        MoveDictionary(1, new List<byte> {input[i + 1]});
+                        i += 2;
                     }
-                    MoveDictionary(input[i + 2], tmpoutput);
-                    i += 3;
+                    else if (input[i] == 0)
+                    {
+
+                        List<byte> tmpoutput = new List<byte>();
+                        for (int j = 0; j < input[i + 2]; j++)
+                        {
+                            output.Add(dictionary[input[i + 1] + j]);
+                            tmpoutput.Add(dictionary[input[i + 1] + j]);
+                        }
+                        MoveDictionary(input[i + 2], tmpoutput);
+                        i += 3;
+                    }
                 }
-                else
+
+                catch
                 {
-                    MessageBox.Show("");
+                    MessageBox.Show("Prawdopodobnie wybrano złą długość słownika.");
+                    return null;
                 }
                 sleep = !fastmode;
                 if (!fastmode)
