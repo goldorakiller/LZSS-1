@@ -1,0 +1,58 @@
+﻿<Window x:Class="LZSS.Statistics"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        Title="Szczegóły" Height="600" Width="600">
+    <Grid>
+        <telerik:RadGridView CanUserInsertRows="False"
+        	ShowGroupPanel="False"
+        	Background="Transparent"
+        	x:Name="SystemConfigurationRadGridView"
+        	CanUserDeleteRows="False"
+        	RowIndicatorVisibility="Collapsed"
+        	IsReadOnly="True"
+        	AutoGenerateColumns="False" 
+        	GridLinesVisibility="None"
+        	SelectionMode="Multiple"
+        	Margin="10,50,10,44"
+        	ItemsSource="{Binding Details, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+        	RowDetailsVisibilityMode="VisibleWhenSelected"
+        	SelectionUnit="FullRow"
+        	IsSynchronizedWithCurrentItem="True"
+            IsFilteringAllowed="True">
+            <telerik:RadGridView.SortDescriptors>
+                <telerik:SortDescriptor 
+            Member="Date"
+            SortDirection="Ascending" />
+            </telerik:RadGridView.SortDescriptors>
+
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="Litera"
+        			DataMemberBinding="{Binding Character}"
+        			Width="*"/>
+
+                <telerik:GridViewDataColumn Header="Kod ASCII"
+        			DataMemberBinding="{Binding ASCII}"
+        			Width="*"/>
+
+                <telerik:GridViewDataColumn Header="Ilość"
+        			DataMemberBinding="{Binding Count}"
+        			Width="*"/>
+
+                <telerik:GridViewDataColumn Header="Procent"
+        			DataMemberBinding="{Binding Percentage, StringFormat=P}"
+        			Width="*"/>
+
+                <telerik:GridViewDataColumn Header="Jednostki informacji"
+        			DataMemberBinding="{Binding InformationUnit}"
+        			Width="*"/>
+
+
+
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+        <Label Content="Szczegóły" HorizontalContentAlignment="Center" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="572" Height="35"/>
+        <Label Content="{Binding Entropia}" HorizontalAlignment="Left" Margin="326,533,0,0" VerticalAlignment="Top" Width="256"/>
+        <Label Content="{Binding AvgLength}" HorizontalAlignment="Left" Margin="10,533,0,0" VerticalAlignment="Top" Width="209"/>
+    </Grid>
+</Window>

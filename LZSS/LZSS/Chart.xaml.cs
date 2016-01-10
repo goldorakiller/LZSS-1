@@ -21,7 +21,7 @@ namespace LZSS
     /// 
     public class MojaKolekcja : Dictionary<int, int>
     {
-
+        
         public void Dodaj(int a, int b)
         {
             if (this.ContainsKey(a))

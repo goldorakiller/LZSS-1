@@ -32,6 +32,7 @@
         <telerik:RadButton Content="Czyść" x:Name="Czysc" HorizontalAlignment="Left" Height="31" Margin="417,308,0,0" VerticalAlignment="Top" Width="80" Click="Czysc_OnClick_Click"/>
         <Image HorizontalAlignment="Left" Height="290" Margin="-97,-49,0,0" VerticalAlignment="Top" Width="386" Source="LZSS.png"/>
         <telerik:RadButton Content="Wykres" x:Name="Kompresuj_Copy" HorizontalAlignment="Left" Height="37" Margin="417,23,0,0" VerticalAlignment="Top" Width="80" Click="Wykres_OnClick_Click"/>
+        <telerik:RadButton Content="Statystyka" x:Name="Statystyka" HorizontalAlignment="Left" Height="37" Margin="319,23,0,0" VerticalAlignment="Top" Width="80" Click="Statystyka_OnClick_OnClick_Click"/>
 
     </Grid>
 </Window>
